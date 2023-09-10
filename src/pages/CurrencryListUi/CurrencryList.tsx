@@ -4,7 +4,7 @@ import Header from "../../components/header";
 import React from "react";
 
 const CurrencryList = React.memo(
-  ({ data, recordPage, selected, selectStore, calculateExchange }: any) => {
+  ({ data, recordPage, selected, selectStore,  }: any) => {
     return (
       <div>
         <Header />
@@ -18,7 +18,7 @@ const CurrencryList = React.memo(
         <div className={cardListBox()}>
           {data?.slice(0, recordPage).map((item: any) => (
             <CardList
-              calculateExchange={calculateExchange}
+            
               selected={selected}
               selectStore={selectStore}
               key={item.id}

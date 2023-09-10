@@ -13,7 +13,7 @@ const CurrencryUi = () => {
     currencryData,
     selected,
     selectStore,
-    calculateExchange,
+  
   } = useCurrencryStore();
 
   //Apicall
@@ -61,7 +61,7 @@ const CurrencryUi = () => {
         </div>
       ) : (
         <CurrencryList
-          calculateExchange={calculateExchange}
+        
           selected={selected}
           selectStore={selectStore}
           recordPage={recordPage}

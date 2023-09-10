@@ -10,7 +10,7 @@ interface ICurrencry {
   currencryApi: () => Promise<void>;
   selected: any;
   selectStore: (item:any) => void;
-  calculateExchange : (val:number,id:string)=>void
+  
 }
 
 export const useCurrencryStore = create<ICurrencry>((set) => ({
@@ -59,17 +59,6 @@ export const useCurrencryStore = create<ICurrencry>((set) => ({
       }
     });
   },
-  calculateExchange: (val,id)=>{
-          if(!val) return;
-          set((state)=>{
-             
-              let calculateRate =   state.currencryData.find((item:any)=> item.id ===id)
-
-              
-
-             calculateRate.exchangeRate = Number(calculateRate.exchangeRate) * val
-            
-              return {...state,...state.currencryData}
-          })
-  }
+  
+  
 }));
