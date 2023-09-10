@@ -1,4 +1,4 @@
-import { useEffect, useRef,  useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCurrencryStore } from "../../store/CurrencrySlice";
 import CurrencryList from "../CurrencryListUi/CurrencryList";
 import LoadingSpinner from "../../components/loading";
@@ -13,9 +13,8 @@ const CurrencryUi = () => {
     currencryData,
     selected,
     selectStore,
+    calculateExchange,
   } = useCurrencryStore();
-
-   
 
   //Apicall
   useEffect(() => {
@@ -62,6 +61,7 @@ const CurrencryUi = () => {
         </div>
       ) : (
         <CurrencryList
+          calculateExchange={calculateExchange}
           selected={selected}
           selectStore={selectStore}
           recordPage={recordPage}
