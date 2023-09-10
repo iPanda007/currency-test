@@ -31,7 +31,7 @@ const CardList = React.memo(
           <div className="">
             {isSelected ? (
               <input autoFocus ref={ref} type="number" onChange={(e)=>{
-                setValue(+e.target.value)
+            
                 if(!e.target.value){
                     selectStore(item)
                 }
