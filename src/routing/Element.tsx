@@ -1,10 +1,11 @@
 import { lazy, ElementType, Suspense, SuspenseProps } from "react";
+import LoadingSpinner from "../components/loading";
 
 // loading screen
 
 const Loadable = (Component: ElementType) => (props: SuspenseProps) =>
   (
-    <Suspense fallback={<>loading</>}>
+    <Suspense fallback={<div className="flex items-center"><LoadingSpinner/></div>}>
       <Component {...props} />
     </Suspense>
   );
