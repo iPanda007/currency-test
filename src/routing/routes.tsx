@@ -9,7 +9,7 @@ const AdminRoute = () => {
             element: <Navigate to="/currency"/>
       },
       {
-            path:"currency",
+            path:"/currency",
             element: <CurrencryList/>
       }
   ])
