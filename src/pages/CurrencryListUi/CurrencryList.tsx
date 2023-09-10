@@ -18,7 +18,7 @@ const CurrencryList = React.memo(({ data,recordPage,selected,selectStore }: any)
       </div>
       <div className={cardListBox()}>
         {data?.slice(0,recordPage).map((item: any) => (
-          <CardList selected={selected} selectStore={selectStore} key={item.id} {...item} />
+          <CardList selected={selected} selectStore={selectStore} key={item.id} item={item} {...item} />
         ))}
       </div>
     </div>
