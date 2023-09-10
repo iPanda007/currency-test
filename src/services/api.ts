@@ -6,4 +6,4 @@ baseURL: `${APP_API}`
 })
 
 
-export const listCurrencry =  ()=> api.get(`/live?access_key=5f287622ab8563adc9a3cd7ec3efd04d&currencies=&source=&format=`)
+export const listCurrencry =  ()=> api.get(`/live?access_key=0c3051e2288ec4a6ff28521f88a8c039&currencies=&source=&format=`)
