@@ -1,11 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { useCurrencryStore } from "../../store/CurrencrySlice";
 import CurrencryList from "../CurrencryListUi/CurrencryList";
 import LoadingSpinner from "../../components/loading";
 
+
 const CurrencryUi = () => {
   const [recordPage, setRecordPage] = useState<number>(12);
   const [infiniteLoading, setInifiniteLoading] = useState(false);
+  const [value,setValue] = useState<string>('')
+  const [filterArray,setFilterArray] = useState<any[]>([])
 
   const {
     currencryApi,
@@ -15,6 +18,13 @@ const CurrencryUi = () => {
     selectStore,
   
   } = useCurrencryStore();
+
+
+   useMemo(()=>{
+        const filterValue = currencryData.filter((item:any)=> item.name.toLowerCase().includes(value.toLowerCase()))
+        setFilterArray(filterValue)
+
+  },[currencryData,value])
 
   //Apicall
   useEffect(() => {
@@ -33,7 +43,6 @@ const CurrencryUi = () => {
 
     setTimeout(() => {
       setRecordPage((prev) => prev + 50);
-
       setInifiniteLoading(false);
     }, 2000);
   }
@@ -61,11 +70,11 @@ const CurrencryUi = () => {
         </div>
       ) : (
         <CurrencryList
-        
+         setValue={setValue}
           selected={selected}
           selectStore={selectStore}
           recordPage={recordPage}
-          data={currencryData}
+          data={filterArray}
         />
       )}
 

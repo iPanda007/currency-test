@@ -9,8 +9,8 @@ interface ICurrencry {
   message: any | string;
   currencryApi: () => Promise<void>;
   selected: any;
-  selectStore: (item:any) => void;
-  
+  selectStore: (item: any) => void;
+
 }
 
 export const useCurrencryStore = create<ICurrencry>((set) => ({
@@ -46,19 +46,17 @@ export const useCurrencryStore = create<ICurrencry>((set) => ({
   },
   selectStore: (item) => {
     set((state) => {
-
-      if (state.selected.find((val: any) => val.id ===  item.id)) {
+      if (state.selected.find((val: any) => val.id === item.id)) {
         const filterValue = state.selected.filter(
           (value: any) => value.id !== item.id
-        );     
-        
+        );
+
         return { selected: filterValue };
       } else {
-      
-          return {selected: [...state.selected, {...item}]}
+        return { selected: [...state.selected, { ...item }] };
       }
     });
   },
-  
-  
+
+
 }));
